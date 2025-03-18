@@ -1,0 +1,55 @@
+'''
+6KYU
+You probably know the "like" system from Facebook and other pages. People can "like" blog posts, pictures or other items. We want to create the text that should be displayed next to such an item.
+
+Implement the function which takes an array containing the names of people that like an item. It must return the display text as shown in the examples:
+
+[]                                -->  "no one likes this"
+["Peter"]                         -->  "Peter likes this"
+["Jacob", "Alex"]                 -->  "Jacob and Alex like this"
+["Max", "John", "Mark"]           -->  "Max, John and Mark like this"
+["Alex", "Jacob", "Mark", "Max"]  -->  "Alex, Jacob and 2 others like this"
+Note: For 4 or more names, the number in "and 2 others" simply increases.
+'''
+def likes(names):
+    if len(names) == 0:
+        return("no one likes this")
+    elif len(names) == 1:
+        return(f"{names[0]} likes this")
+    elif len(names) == 2:
+        return(f"{names[0]} and {names[1]} like this")
+    elif len(names) == 3:
+        return(f"{names[0]}, {names[1]} and {names[2]} like this")
+    else:
+        return(f"{names[0]}, {names[1]} and {len(names)-2} others like this")
+
+'''
+6KYU
+Implement a function that computes the difference between two lists. The function should remove all occurrences of elements from the first list (a) that are present in the second list (b). The order of elements in the first list should be preserved in the result.
+
+Examples
+If a = [1, 2] and b = [1], the result should be [2].
+
+If a = [1, 2, 2, 2, 3] and b = [2], the result should be [1, 3].
+'''
+def array_diff(a, b):
+    x = []
+    for i in a :
+        if i not in b:
+            x.append(i)    
+    return x
+
+'''
+Nathan loves cycling.
+Because Nathan knows it is important to stay hydrated, he drinks 0.5 litres of water per hour of cycling.
+You get given the time in hours and you need to return the number of litres Nathan will drink, rounded down.
+For example:
+
+time = 3 ----> litres = 1
+
+time = 6.7---> litres = 3
+
+time = 11.8--> litres = 5
+'''
+def litres(time):
+    return int(time*0.5)
