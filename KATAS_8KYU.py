@@ -1,4 +1,38 @@
 '''
+Lvl 6
+If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+Finish the solution so that it returns the sum of all the multiples of 3 or 5 below the number passed in.
+Additionally, if the number is negative, return 0.
+Note: If the number is a multiple of both 3 and 5, only count it once.
+Courtesy of projecteuler.net (Problem 1)
+'''
+def solution(number):
+    x = 0
+    if number > 0:
+        for i in range(number):
+            if ((i % 3) == 0) or ((i % 5) == 0):
+                x += i
+        return x
+    else:
+        return 0
+    
+''' 
+Lvl 7
+Return the number (count) of vowels in the given string.
+We will consider a, e, i, o, u as vowels for this Kata (but not y).
+The input string will only consist of lower case letters and/or spaces.
+
+'''
+def get_count(sentence):
+    x = 0 
+    for i in sentence:
+        if i in ['a', 'e', 'i', 'o', 'u']:
+            x += 1
+    return x
+
+
+
+'''
 6KYU
 You probably know the "like" system from Facebook and other pages. People can "like" blog posts, pictures or other items. We want to create the text that should be displayed next to such an item.
 
