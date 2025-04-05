@@ -1,5 +1,52 @@
 '''
-Lvl 7
+6 KYU
+Create a function taking a positive integer between 1 and 3999 (both included) as its parameter and returning a string containing the Roman Numeral representation of that integer.
+Modern Roman numerals are written by expressing each digit separately starting with the leftmost digit and skipping any digit with a value of zero. There cannot be more than 3 identical symbols in a row.
+In Roman numerals:
+
+1990 is rendered: 1000=M + 900=CM + 90=XC; resulting in MCMXC.
+2008 is written as 2000=MM, 8=VIII; or MMVIII.
+1666 uses each Roman symbol in descending order: MDCLXVI.
+Example:
+
+   1 -->       "I"
+1000 -->       "M"
+1666 --> "MDCLXVI"
+Help:
+
+Symbol    Value
+I          1
+V          5
+X          10
+L          50
+C          100
+D          500
+M          1,000
+More about roman numerals
+'''
+
+def solution(n):
+    # TODO convert int to roman string
+    SOLUCION = ""
+    UNIDADES = {"1":"I","2":"II","3":"III","4":"IV","5":"V","6":"VI","7":"VII","8":"VIII","9":"IX" }
+    DECENAS  = {"1":"X","2":"XX","3":"XXX","4":"XL","5":"L","6":"LX","7":"LXX","8":"LXXX","9":"XC" }
+    CENTENAS = {"1":"C","2":"CC","3":"CCC","4":"CD","5":"D","6":"DC","7":"DCC","8":"DCCC","9":"CM" }
+    MILLARES = {"1":"M","2":"MM","3":"MMM"}
+    
+    numero_str = str(n).zfill(4)
+    if numero_str[0] != "0":
+        SOLUCION += MILLARES.get(numero_str[0], "")
+    if numero_str[1] != "0":
+        SOLUCION += CENTENAS.get(numero_str[1], "")
+    if numero_str[2] != "0":
+        SOLUCION += DECENAS.get(numero_str[2], "")
+    if numero_str[3] != "0":
+        SOLUCION += UNIDADES.get(numero_str[3], "")
+        
+    return SOLUCION
+
+'''
+7 KYU
 Description:
 An isogram is a word that has no repeating letters, consecutive or non-consecutive. Implement a function that determines whether a string that contains only letters is an isogram. Assume the empty string is an isogram. Ignore letter case.
 
@@ -26,7 +73,7 @@ def is_isogram(string):
 
 
 '''
-Lvl 6
+6 KYU
 Write a function that takes in a string of one or more words, and returns the same string, but with all words that have five or more letters reversed (Just like the name of this Kata). Strings passed in will consist of only letters and spaces. Spaces will be included only when more than one word is present.
 Examples:
 
@@ -50,7 +97,7 @@ def spin_words(sentence):
 
 
 '''
-Lvl 6
+6 KYU
 If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
 Finish the solution so that it returns the sum of all the multiples of 3 or 5 below the number passed in.
 Additionally, if the number is negative, return 0.
@@ -68,7 +115,7 @@ def solution(number):
         return 0
     
 ''' 
-Lvl 7
+7 KYU
 Return the number (count) of vowels in the given string.
 We will consider a, e, i, o, u as vowels for this Kata (but not y).
 The input string will only consist of lower case letters and/or spaces.
