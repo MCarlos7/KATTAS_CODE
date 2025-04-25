@@ -1,3 +1,38 @@
+''' i LOVE THIS CODE 
+5kyu
+This time we want to write calculations using functions and get the results. Let's have a look at some examples:
+
+seven(times(five())) # must return 35
+four(plus(nine())) # must return 13
+eight(minus(three())) # must return 5
+six(divided_by(two())) # must return 3
+Requirements:
+
+There must be a function for each number from 0 ("zero") to 9 ("nine")
+There must be a function for each of the following mathematical operations: plus, minus, times, divided_by
+Each calculation consist of exactly one operation and two numbers
+The most outer function represents the left operand, the most inner function represents the right operand
+Division should be integer division. For example, this should return 2, not 2.666666...:
+eight(divided_by(three()))
+'''
+def zero(fn=0):  return 0 if (fn == 0) else  fn(0)
+def one(fn=0):   return 1 if (fn == 0) else  fn(1)
+def two(fn=0):   return 2 if (fn == 0) else  fn(2)
+def three(fn=0): return 3 if (fn == 0) else  fn(3)
+def four(fn=0):  return 4 if (fn == 0) else  fn(4)
+def five(fn=0):  return 5 if (fn == 0) else  fn(5)
+def six(fn=0):   return 6 if (fn == 0) else  fn(6)
+def seven(fn=0): return 7 if (fn == 0) else  fn(7)
+def eight(fn=0): return 8 if (fn == 0) else  fn(8)
+def nine(fn=0):  return 9 if (fn == 0) else  fn(9)
+
+def plus(fn):        return lambda x: x + fn
+def minus(fn):       return lambda x: x - fn
+def times(fn):       return lambda x: x * fn
+def divided_by(fn):  return lambda x: x // fn
+
+
+
 '''
 5kyu
 The Fibonacci numbers are the numbers in the following integer sequence (Fn): 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, ...
