@@ -1,3 +1,22 @@
+'''
+5kyu
+Move the first letter of each word to the end of it, then add "ay" to the end of the word. Leave punctuation marks untouched.
+
+Examples
+pig_it('Pig latin is cool') # igPay atinlay siay oolcay
+pig_it('Hello world !')     # elloHay orldway !
+'''
+def pig_it(text):
+    split = text.split()
+    final = ''
+    for i in split:
+        if i.isalpha(): 
+            new_word = i[1:] + i[0] + 'ay'
+        else:
+            new_word = i
+        final += new_word + ' '
+    return final.strip()
+
 ''' i LOVE THIS CODE 
 5kyu
 This time we want to write calculations using functions and get the results. Let's have a look at some examples:
