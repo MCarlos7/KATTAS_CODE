@@ -1,4 +1,38 @@
 '''
+The rgb function is incomplete. Complete it so that passing in RGB decimal values will result in a hexadecimal representation being returned. Valid decimal values for RGB are 0 - 255. Any values that fall out of that range must be rounded to the closest valid value.
+
+Note: Your answer should always be 6 characters long, the shorthand with 3 will not work here.
+
+Examples (input --> output):
+255, 255, 255 --> "FFFFFF"
+255, 255, 300 --> "FFFFFF"
+0, 0, 0       --> "000000"
+148, 0, 211   --> "9400D3"
+'''
+def rgb(r, g, b):
+    return to_hex(r) + to_hex(g) + to_hex(b)
+
+
+
+def to_hex (x):
+    hexV = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
+    
+    if x < 0:  #Check values in range 
+        x = 0
+    elif x > 255:
+        x = 255
+        
+    high = x // 16
+    low = x % 16
+    return hexV[high] + hexV[low]
+#BEST
+def rgb(r, g, b):
+    round = lambda x: min(255, max(x, 0))
+    return ("{:02X}" * 3).format(round(r), round(g), round(b))
+
+
+
+'''
 Complete the function scramble(str1, str2) that returns true if a portion of str1 characters can be rearranged to match str2, otherwise returns false.
 
 Notes:
