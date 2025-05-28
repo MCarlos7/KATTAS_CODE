@@ -1,4 +1,45 @@
+/*6
+You will be given an array of numbers. You have to sort the odd numbers in ascending order while leaving the even numbers at their original positions.
+
+Examples
+[7, 1]  =>  [1, 7]
+[5, 8, 6, 3, 4]  =>  [3, 8, 6, 5, 4]
+[9, 8, 7, 6, 5, 4, 3, 2, 1, 0]  =>  [1, 8, 3, 6, 5, 4, 7, 2, 9, 0]
+
+*/
+function sortArray(array) {
+  let sorted = [];
+  let odd = [];
+
+  // Fase 1: Recorremos el arreglo original
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] % 2 === 0) {
+      // Si es par, lo colocamos en su lugar
+      sorted.push(array[i]);
+    } else {
+      // Si es impar, marcamos con null y lo guardamos en 'odd'
+      sorted.push(null);
+      odd.push(array[i]);
+    }
+  }
+
+  // Ordenamos los impares
+  odd.sort((a, b) => a - b);
+
+  // Fase 2: Rellenamos los nulls con los impares ordenados
+  let oddIndex = 0;
+  for (let i = 0; i < sorted.length; i++) {
+    if (sorted[i] === null) {
+      sorted[i] = odd[oddIndex];
+      oddIndex++;
+    }
+  }
+
+  return sorted;
+}
+
 /*
+
 A Narcissistic Number (or Armstrong Number) is a positive number which is the sum of its own digits, each raised to the power of the number of digits in a given base. In this Kata, we will restrict ourselves to decimal (base 10).
 
 For example, take 153 (3 digits), which is narcissistic:
