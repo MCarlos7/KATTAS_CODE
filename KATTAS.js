@@ -1,3 +1,34 @@
+/*6
+
+Write a function that takes a string of braces, and determines if the order of the braces is valid. It should return true if the string is valid, and false if it's invalid.
+
+This Kata is similar to the Valid Parentheses Kata, but introduces new characters: brackets [], and curly braces {}. Thanks to @arnedag for the idea!
+
+All input strings will be nonempty, and will only consist of parentheses, brackets and curly braces: ()[]{}.
+
+What is considered Valid?
+A string of braces is considered valid if all braces are matched with the correct brace.
+
+Examples
+"(){}[]"   =>  True
+"([{}])"   =>  True
+"(}"       =>  False
+"[(])"     =>  False
+"[({})](]" =>  False
+*/
+function validBraces(str) {
+  if (str === '') return true;
+  const pairs = ['()', '[]', '{}'];
+
+  for (let pair of pairs) {
+    if (str.includes(pair)) {
+      return validBraces(str.replace(pair, ''));
+    }
+  }
+
+  return false;
+}
+
 /*5
 Greed is a dice game played with five six-sided dice. Your mission, should you choose to accept it, is to score a throw according to these rules. You will always be given an array with five six-sided dice values.
 
